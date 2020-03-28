@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label x:Name="Path" Content="{Binding Path=SettingsPath}" HorizontalAlignment="Left" Margin="368,201,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblPath" Content="{Binding Path=SettingsPath}" HorizontalAlignment="Left" Margin="368,201,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnBrowse" Content="Browse" HorizontalAlignment="Left" Margin="427,201,0,0" VerticalAlignment="Top" Width="75" Click="btnBrowse_Click"/>
 
     </Grid>
 </Window>

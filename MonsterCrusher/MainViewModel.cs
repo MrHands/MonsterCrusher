@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace MonsterCrusher
     {
         public String SettingsPath
         {
-            get { return AppSettings.Instance.settingsPath; }
+            get { return ConfigurationManager.AppSettings["settingsPath"]; }
         }
     }
 }
