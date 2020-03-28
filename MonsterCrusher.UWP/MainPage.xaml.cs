@@ -21,6 +21,9 @@ namespace MonsterCrusher.UWP
         {
             this.InitializeComponent();
 
+            var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            var complete = Path.Combine(systemPath, "MonsterCrusher");
+
             LoadApplication(new MonsterCrusher.App());
         }
     }
