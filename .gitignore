@@ -7,4 +7,6 @@
 **/bin/x86/*
 **/bin/x64/*
 *.dll
+*.exe
+*.exe.config
 *.deps.json
