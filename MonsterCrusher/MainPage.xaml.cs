@@ -12,6 +12,8 @@ namespace MonsterCrusher
         public MainPage()
         {
             InitializeComponent();
+
+            Console.Write(AppSettings.Instance.settingsPath);
         }
     }
 }
