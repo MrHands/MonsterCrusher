@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -47,11 +48,11 @@ namespace MonsterCrusher
                 Properties.Settings.Default.GameDirectory = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
                 Properties.Settings.Default.Save();
 
-                DataContext = new MainViewModel();
+                Stream fileStream = openFileDialog.OpenFile();
+                Save save = new Save();
+                save.Load(fileStream);
 
-                /*var fileStream = openFileDialog.OpenFile();
-                StreamReader reader = new StreamReader(fileStream);
-                fileContent = reader.ReadToEnd();*/
+                DataContext = new MainViewModel();
             }
         }
     }
