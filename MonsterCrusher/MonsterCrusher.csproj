@@ -58,6 +58,7 @@
     </ApplicationDefinition>
     <Compile Include="Save.cs" />
     <Compile Include="SaveHeader.cs" />
+    <Compile Include="SaveMonster.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -44,5 +44,26 @@ namespace MonsterCrusher
 
         [FieldOffset(1310)]
         public UInt16 dateMinute;
+
+        [FieldOffset(1312)]
+        public UInt32 checksum1;
+
+        [FieldOffset(1316)]
+        public UInt32 checksum2;
+
+        [FieldOffset(1320)]
+        public UInt32 checksum3;
+
+        [FieldOffset(1324)]
+        public UInt32 checksum4;
+
+        [FieldOffset(1328)]
+        public UInt16 staminaCurrent;
+
+        [FieldOffset(1332)]
+        public UInt16 staminaMaximum;
+
+        [FieldOffset(1336)]
+        public UInt16 unknown3;
     }
 }
