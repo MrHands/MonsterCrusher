@@ -29,16 +29,12 @@ namespace MonsterCrusher
 
             reader.BaseStream.Seek(241428, SeekOrigin.Begin);
 
-            SaveMonster owned = new SaveMonster();
-            ReadStruct<SaveMonster>(reader, ref owned);
-            monstersOwned.Add(owned);
-
-            /*
             for (int i = 0; i < header.monsterCount; ++i)
             {
-                SaveMonster monster = new SaveMonster();
-
-            }*/
+                SaveMonster owned = new SaveMonster();
+                ReadStruct<SaveMonster>(reader, ref owned);
+                monstersOwned.Add(owned);
+            }
 
             return true;
         }

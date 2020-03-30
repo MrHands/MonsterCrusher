@@ -43,7 +43,7 @@ namespace MonsterCrusher
 
         [FieldOffset(388)]
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
-        public String unknown4;
+        public String name;
 
         [FieldOffset(452)]
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
@@ -87,13 +87,13 @@ namespace MonsterCrusher
         public UInt32 mentalMaximum;
 
         [FieldOffset(2772)]
-        public UInt32 price;
+        public UInt32 pricePurchase;
 
         [FieldOffset(2772)]
-        public UInt32 unknown10;
+        public UInt32 priceSale;
 
         [FieldOffset(2780)]
-        public UInt32 unknown11;
+        public UInt32 pleasure;
 
         [FieldOffset(2784)]
         public UInt32 shameMaximum;
@@ -132,9 +132,12 @@ namespace MonsterCrusher
         public UInt32 unknown19;
 
         [FieldOffset(2832)]
-        public UInt32 unknown20;
+        public UInt32 squeezedDry;
 
         [FieldOffset(2836)]
+        public UInt32 unknown28;
+
+        [FieldOffset(2840)]
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
         public String imagePlay1;
 
@@ -147,7 +150,42 @@ namespace MonsterCrusher
         public String unknown21;
 
         [FieldOffset(3000)]
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 1560)]
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 1236)]
         public String unknown22;
+
+        [FieldOffset(4236)]
+        public UInt32 statObedience;
+
+        [FieldOffset(4240)]
+        public UInt32 statLewdness;
+
+        [FieldOffset(4244)]
+        public UInt32 statTechnique;
+
+        [FieldOffset(4248)]
+        public UInt32 statAffection;
+
+        [FieldOffset(4252)]
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 28)]
+        public String unknown23;
+
+        [FieldOffset(4280)]
+        public UInt32 prostitutionCount;
+
+        [FieldOffset(4284)]
+        public UInt32 moneyEarned;
+
+        [FieldOffset(4288)]
+        public UInt32 unknown24;
+
+        [FieldOffset(4292)]
+        public UInt32 unknown25;
+
+        [FieldOffset(4296)]
+        public UInt32 unknown26;
+
+        [FieldOffset(4300)]
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 260)]
+        public String unknown27;
     }
 }
