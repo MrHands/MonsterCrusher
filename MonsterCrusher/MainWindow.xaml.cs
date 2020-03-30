@@ -52,7 +52,7 @@ namespace MonsterCrusher
                 Save save = new Save();
                 save.Load(fileStream);
 
-                DataContext = new MainViewModel();
+                DataContext = new MainViewModel(save);
             }
         }
     }
