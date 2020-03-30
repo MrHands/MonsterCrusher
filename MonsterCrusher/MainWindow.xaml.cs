@@ -27,6 +27,8 @@ namespace MonsterCrusher
         {
             InitializeComponent();
 
+            Console.WriteLine("gameDirectory: " + Properties.Settings.Default.GameDirectory);
+
             DataContext = new MainViewModel();
         }
 
@@ -42,7 +44,9 @@ namespace MonsterCrusher
 
             if (openFileDialog.ShowDialog() == true)
             {
-                ConfigurationManager.AppSettings["settingsPath"] = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
+                Properties.Settings.Default.GameDirectory = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
+                Properties.Settings.Default.Save();
+
                 DataContext = new MainViewModel();
 
                 /*var fileStream = openFileDialog.OpenFile();

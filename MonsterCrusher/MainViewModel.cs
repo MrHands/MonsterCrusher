@@ -11,7 +11,7 @@ namespace MonsterCrusher
     {
         public String SettingsPath
         {
-            get { return ConfigurationManager.AppSettings["settingsPath"]; }
+            get { return Properties.Settings.Default.GameDirectory; }
         }
     }
 }
