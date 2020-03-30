@@ -19,5 +19,30 @@ namespace MonsterCrusher
 
         [FieldOffset(12)]
         public UInt32 money;
+
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 1280)]
+        [FieldOffset(16)]
+        public string unknown1;
+
+        [FieldOffset(1296)]
+        public UInt32 monsterCount;
+
+        [FieldOffset(1300)]
+        public UInt16 dateYear;
+
+        [FieldOffset(1302)]
+        public UInt16 dateMonth;
+
+        [FieldOffset(1304)]
+        public UInt16 unknown2;
+
+        [FieldOffset(1306)]
+        public UInt16 dateDay;
+
+        [FieldOffset(1308)]
+        public UInt16 dateHour;
+
+        [FieldOffset(1310)]
+        public UInt16 dateMinute;
     }
 }
