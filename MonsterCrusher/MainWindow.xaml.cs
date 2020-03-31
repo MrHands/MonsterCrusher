@@ -24,6 +24,8 @@ namespace MonsterCrusher
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Save _saveLoaded = null;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -49,10 +51,39 @@ namespace MonsterCrusher
                 Properties.Settings.Default.Save();
 
                 Stream fileStream = openFileDialog.OpenFile();
-                Save save = new Save();
-                save.Load(fileStream);
+                _saveLoaded = new Save();
+                _saveLoaded.Load(fileStream);
 
-                DataContext = new MainViewModel(save);
+                DataContext = new MainViewModel(_saveLoaded);
+            }
+        }
+
+        private byte[] GetBytes(SaveMonster data)
+        {
+            int length = Marshal.SizeOf(data);
+            IntPtr ptr = Marshal.AllocHGlobal(length);
+            byte[] myBuffer = new byte[length];
+
+            Marshal.StructureToPtr(data, ptr, true);
+            Marshal.Copy(ptr, myBuffer, 0, length);
+            Marshal.FreeHGlobal(ptr);
+
+            return myBuffer;
+        }
+
+        private void BtnExport_Click(object sender, RoutedEventArgs e)
+        {
+            var selected = (DataContext as MainViewModel).MonsterSelected;
+            if (selected == null)
+            {
+                return;
+            }
+
+            string path = System.IO.Path.Combine(Properties.Settings.Default.GameDirectory, "test.dat");
+            using (FileStream fs = new FileStream(path, FileMode.Create))
+            {
+                var bytes = GetBytes(selected.Save);
+                fs.Write(bytes, 0, bytes.Length);
             }
         }
     }

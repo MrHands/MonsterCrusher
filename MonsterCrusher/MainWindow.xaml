@@ -16,6 +16,7 @@
         <TextBox x:Name="txtMoney" HorizontalAlignment="Left" Height="23" Margin="131,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" Text="{Binding Path=Money, Mode=OneWay}"/>
         <Label x:Name="lblDate" Content="{Binding Date}" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" Width="249"/>
         <uc:MonsterView Margin="278,79,10.333,9.667" DataContext="{Binding Path=MonsterSelected}"></uc:MonsterView>
-        <ComboBox x:Name="cmbMonster" HorizontalAlignment="Left" Margin="278,44,0,0" VerticalAlignment="Top" Width="505" ItemsSource="{Binding Path=MonstersOwned}" DisplayMemberPath="Name" SelectedValuePath="Name" SelectedValue="{Binding Path=MonsterSelectedName}"/>
+        <ComboBox x:Name="cmbMonster" HorizontalAlignment="Left" Margin="278,44,0,0" VerticalAlignment="Top" Width="425" ItemsSource="{Binding Path=MonstersOwned}" DisplayMemberPath="Name" SelectedValuePath="Name" SelectedValue="{Binding Path=MonsterSelectedName}"/>
+        <Button x:Name="btnExport" Content="Export" HorizontalAlignment="Left" Margin="708,44,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="BtnExport_Click"/>
     </Grid>
 </Window>

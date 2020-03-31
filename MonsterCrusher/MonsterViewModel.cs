@@ -76,6 +76,11 @@ namespace MonsterCrusher
             return _save.name;
         }
 
+        public SaveMonster Save
+        {
+            get { return _save; }
+        }
+
         public string Name
         {
             get { return _save.name; }
