@@ -14,8 +14,16 @@ namespace MonsterCrusher
         public UInt32 unknown1;
 
         [FieldOffset(4)]
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
         public String imageCustomer;
+
+        [FieldOffset(132)]
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
+        public String name2;
+
+        [FieldOffset(196)]
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
+        public String name3;
 
         [FieldOffset(260)]
         public UInt32 checksum1;

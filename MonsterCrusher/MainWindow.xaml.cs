@@ -53,7 +53,7 @@ namespace MonsterCrusher
 
                 Stream fileStream = dialog.OpenFile();
                 _saveLoaded = new Save();
-                _saveLoaded.Load(fileStream);
+                _saveLoaded.LoadFromStream(fileStream);
 
                 DataContext = new MainViewModel(_saveLoaded);
             }
@@ -93,6 +93,24 @@ namespace MonsterCrusher
             {
                 var bytes = GetBytes(selected.Save);
                 fs.Write(bytes, 0, bytes.Length);
+            }
+        }
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog()
+            {
+                Filter = "Monster Girl Club Bifrost Save Files (*.dat)|*.dat",
+                InitialDirectory = Properties.Settings.Default.GameDirectory
+            };
+            if (dialog.ShowDialog() != true)
+            {
+                return;
+            }
+
+            using (FileStream fs = new FileStream(dialog.FileName, FileMode.Create))
+            {
+                _saveLoaded.SaveToStream(fs);
             }
         }
     }

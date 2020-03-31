@@ -38,8 +38,8 @@ namespace MonsterCrusher
         public String unknown2;
 
         [FieldOffset(356)]
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
-        public String unknown3;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        public byte[] unknown3;
 
         [FieldOffset(388)]
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]

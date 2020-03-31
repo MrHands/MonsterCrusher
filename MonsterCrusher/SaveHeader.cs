@@ -20,9 +20,9 @@ namespace MonsterCrusher
         [FieldOffset(12)]
         public UInt32 money;
 
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 1280)]
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 1280)]
         [FieldOffset(16)]
-        public string unknown1;
+        public byte[] unknown1;
 
         [FieldOffset(1296)]
         public UInt32 monsterCount;

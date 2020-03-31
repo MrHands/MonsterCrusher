@@ -8,7 +8,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label x:Name="lblPath" Content="{Binding SettingsPath}" HorizontalAlignment="Left" Margin="90,7,0,0" VerticalAlignment="Top" Width="661"/>
         <Button x:Name="btnBrowse" Content="Browse" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="btnBrowse_Click"/>
         <Label x:Name="lblDays" Content="Days" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Width="100"/>
         <TextBox x:Name="txtDays" HorizontalAlignment="Left" Height="23" Margin="131,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" Text="{Binding Path=Days, Mode=OneWay}"/>
@@ -18,5 +17,6 @@
         <uc:MonsterView Margin="278,79,10.333,9.667" DataContext="{Binding Path=MonsterSelected}"></uc:MonsterView>
         <ComboBox x:Name="cmbMonster" HorizontalAlignment="Left" Margin="278,44,0,0" VerticalAlignment="Top" Width="425" ItemsSource="{Binding Path=MonstersOwned}" DisplayMemberPath="Name" SelectedValuePath="Name" SelectedValue="{Binding Path=MonsterSelectedName}"/>
         <Button x:Name="btnExport" Content="Export" HorizontalAlignment="Left" Margin="708,44,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="BtnExport_Click"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Click="BtnSave_Click"/>
     </Grid>
 </Window>
