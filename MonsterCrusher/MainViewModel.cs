@@ -4,12 +4,15 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 
 namespace MonsterCrusher
 {
     public class MainViewModel
     {
         private Save _save = null;
+        private readonly CollectionView _monstersForSale = null;
+        private readonly CollectionView _monstersOwned = null;
 
         public MainViewModel()
         {
@@ -17,6 +20,22 @@ namespace MonsterCrusher
         public MainViewModel(Save save)
         {
             _save = save;
+
+            List<MonsterViewModel> forSaleVMs = new List<MonsterViewModel>();
+            foreach (SaveMonster m in _save.monstersSale)
+            {
+                MonsterViewModel vm = new MonsterViewModel(m);
+                forSaleVMs.Add(vm);
+            }
+            _monstersForSale = new CollectionView(forSaleVMs);
+
+            List<MonsterViewModel> ownedVMs = new List<MonsterViewModel>();
+            foreach (SaveMonster m in _save.monstersOwned)
+            {
+                MonsterViewModel vm = new MonsterViewModel(m);
+                ownedVMs.Add(vm);
+            }
+            _monstersOwned = new CollectionView(ownedVMs);
         }
 
         public String SettingsPath
@@ -52,6 +71,16 @@ namespace MonsterCrusher
                         _save.header.dateMinute);
                 }
             }
+        }
+
+        public CollectionView MonstersForSale
+        {
+            get { return _monstersForSale; }
+        }
+
+        public CollectionView MonstersOwned
+        {
+            get { return _monstersOwned; }
         }
     }
 }
