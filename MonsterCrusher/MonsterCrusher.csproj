@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="MonsterViewModel.cs" />
     <Compile Include="Save.cs" />
+    <Compile Include="SaveClient.cs" />
     <Compile Include="SaveHeader.cs" />
     <Compile Include="SaveMonster.cs" />
     <Page Include="MainWindow.xaml">

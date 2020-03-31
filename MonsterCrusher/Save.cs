@@ -11,6 +11,7 @@ namespace MonsterCrusher
     public class Save
     {
         public SaveHeader header;
+        public List<SaveClient> clients = new List<SaveClient>();
         public List<SaveMonster> monstersSale = new List<SaveMonster>();
         public List<SaveMonster> monstersOwned = new List<SaveMonster>();
 
@@ -20,6 +21,8 @@ namespace MonsterCrusher
 
             ReadStruct<SaveHeader>(reader, ref header);
 
+            // monsters for sale
+
             for (int i = 0; i < 6; ++i)
             {
                 SaveMonster offer = new SaveMonster();
@@ -27,7 +30,23 @@ namespace MonsterCrusher
                 monstersSale.Add(offer);
             }
 
-            // 96728
+            // clients
+
+            reader.BaseStream.Seek(96728, SeekOrigin.Begin);
+
+            for (; ; )
+            {
+                SaveClient client = new SaveClient();
+                ReadStruct<SaveClient>(reader, ref client);
+                if (!client.imageCustomer.EndsWith(".tga"))
+                {
+                    break;
+                }
+
+                clients.Add(client);
+            }
+
+            // monsters owned
 
             reader.BaseStream.Seek(241428, SeekOrigin.Begin);
 
