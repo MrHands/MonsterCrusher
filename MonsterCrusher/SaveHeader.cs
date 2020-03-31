@@ -52,7 +52,7 @@ namespace MonsterCrusher
         public UInt32 checksum2;
 
         [FieldOffset(1320)]
-        public UInt32 checksum3;
+        public UInt32 checksumMonsterCount1;
 
         [FieldOffset(1324)]
         public UInt32 checksum4;
@@ -64,6 +64,6 @@ namespace MonsterCrusher
         public UInt16 staminaMaximum;
 
         [FieldOffset(1336)]
-        public UInt16 unknown3;
+        public UInt16 checksumMonsterCount2;
     }
 }

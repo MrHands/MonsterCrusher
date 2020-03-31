@@ -27,6 +27,8 @@ namespace MonsterCrusher
                 monstersSale.Add(offer);
             }
 
+            // 96728
+
             reader.BaseStream.Seek(241428, SeekOrigin.Begin);
 
             for (int i = 0; i < header.monsterCount; ++i)
@@ -34,6 +36,18 @@ namespace MonsterCrusher
                 SaveMonster owned = new SaveMonster();
                 ReadStruct<SaveMonster>(reader, ref owned);
                 monstersOwned.Add(owned);
+            }
+
+            for (;;)
+            {
+                SaveMonster unused = new SaveMonster();
+                ReadStruct<SaveMonster>(reader, ref unused);
+                if (!unused.imageIcon.EndsWith(".tga"))
+                {
+                    break;
+                }
+
+                monstersOwned.Add(unused);
             }
 
             return true;

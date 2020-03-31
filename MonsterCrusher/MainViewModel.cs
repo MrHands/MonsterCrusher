@@ -35,7 +35,7 @@ namespace MonsterCrusher
             List<MonsterViewModel> ownedVMs = new List<MonsterViewModel>();
             foreach (SaveMonster m in _save.monstersOwned)
             {
-                MonsterViewModel vm = new MonsterViewModel(m);
+                MonsterViewModel vm = new MonsterViewModel(m) { IsUnused = ownedVMs.Count >= _save.header.monsterCount };
                 ownedVMs.Add(vm);
             }
             _monstersOwned = new CollectionView(ownedVMs);

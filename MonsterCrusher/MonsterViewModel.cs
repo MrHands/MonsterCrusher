@@ -87,13 +87,20 @@ namespace MonsterCrusher
 
         public override string ToString()
         {
-            return _save.name;
+            string result = _save.name;
+            if (IsUnused)
+            {
+                result += " [unused]";
+            }
+            return result;
         }
 
         public SaveMonster Save
         {
             get { return _save; }
         }
+
+        public bool IsUnused { get; set; }
 
         public string Name
         {
