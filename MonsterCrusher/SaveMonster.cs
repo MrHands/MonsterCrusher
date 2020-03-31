@@ -188,7 +188,27 @@ namespace MonsterCrusher
         public UInt32 unknown26;
 
         [FieldOffset(4300)]
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 260)]
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 118)]
         public byte[] unknown27;
+
+        [FieldOffset(4418)]
+        public UInt16 urineTraining;
+
+        [FieldOffset(4420)]
+        public UInt32 checksum1;
+
+        [FieldOffset(4424)]
+        public UInt32 checksum2;
+
+        [FieldOffset(4428)]
+        public UInt32 checksum3;
+
+        [FieldOffset(4432)]
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
+        public String firstTime;
+
+        [FieldOffset(4496)]
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
+        public String unknown30;
     }
 }
