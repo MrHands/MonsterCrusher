@@ -19,5 +19,10 @@ namespace MonsterCrusher
         {
             return _save.name;
         }
+
+        public string Name
+        {
+            get { return _save.name; }
+        }
     }
 }

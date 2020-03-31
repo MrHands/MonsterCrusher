@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,10 @@ using System.Windows.Data;
 
 namespace MonsterCrusher
 {
-    public class MainViewModel
+    public class MainViewModel : INotifyPropertyChanged
     {
         private Save _save = null;
+        private string _monsterSelected = "";
         private readonly CollectionView _monstersForSale = null;
         private readonly CollectionView _monstersOwned = null;
 
@@ -73,6 +75,19 @@ namespace MonsterCrusher
             }
         }
 
+        public string MonsterSelected
+        {
+            get { return _monsterSelected; }
+            set
+            {
+                if (_monsterSelected != value)
+                {
+                    _monsterSelected = value;
+                    OnPropertyChanged("MonsterSelected");
+                }
+            }
+        }
+
         public CollectionView MonstersForSale
         {
             get { return _monstersForSale; }
@@ -82,5 +97,15 @@ namespace MonsterCrusher
         {
             get { return _monstersOwned; }
         }
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

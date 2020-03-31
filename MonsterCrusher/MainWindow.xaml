@@ -20,6 +20,6 @@
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Value" MinWidth="199"/>
             </DataGrid.Columns>
         </DataGrid>
-        <ComboBox x:Name="cmbMonster" HorizontalAlignment="Left" Margin="278,44,0,0" VerticalAlignment="Top" Width="473" ItemsSource="{Binding Path=MonstersOwned}"/>
+        <ComboBox x:Name="cmbMonster" HorizontalAlignment="Left" Margin="278,44,0,0" VerticalAlignment="Top" Width="473" ItemsSource="{Binding Path=MonstersOwned}" DisplayMemberPath="Name" SelectedValuePath="Name" SelectedValue="{Binding Path=MonsterSelected}"/>
     </Grid>
 </Window>
