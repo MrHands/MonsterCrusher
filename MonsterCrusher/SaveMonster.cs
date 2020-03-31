@@ -54,22 +54,22 @@ namespace MonsterCrusher
         public String race2;
 
         [FieldOffset(516)]
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 448)]
-        public String unknown5;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 448)]
+        public byte[] unknown5;
 
         [FieldOffset(964)]
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
-        public String unknown6;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+        public byte[] unknown6;
 
         // bunch of numbers with a checksum?
 
         [FieldOffset(1220)]
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
-        public String unknown7;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+        public byte[] unknown7;
 
         [FieldOffset(1476)]
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 1276)]
-        public String unknown8;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 1276)]
+        public byte[] unknown8;
 
         [FieldOffset(2752)]
         public UInt32 unknown9;
@@ -89,7 +89,7 @@ namespace MonsterCrusher
         [FieldOffset(2772)]
         public UInt32 pricePurchase;
 
-        [FieldOffset(2772)]
+        [FieldOffset(2776)]
         public UInt32 priceSale;
 
         [FieldOffset(2780)]
@@ -142,16 +142,19 @@ namespace MonsterCrusher
         public String imagePlay1;
 
         [FieldOffset(2900)]
+        public UInt32 unknown29;
+
+        [FieldOffset(2904)]
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
         public String imagePlay2;
 
         [FieldOffset(2964)]
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 36)]
-        public String unknown21;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 36)]
+        public byte[] unknown21;
 
         [FieldOffset(3000)]
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 1236)]
-        public String unknown22;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 1236)]
+        public byte[] unknown22;
 
         [FieldOffset(4236)]
         public UInt32 statObedience;
@@ -166,8 +169,8 @@ namespace MonsterCrusher
         public UInt32 statAffection;
 
         [FieldOffset(4252)]
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 28)]
-        public String unknown23;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 28)]
+        public byte[] unknown23;
 
         [FieldOffset(4280)]
         public UInt32 prostitutionCount;
@@ -185,7 +188,7 @@ namespace MonsterCrusher
         public UInt32 unknown26;
 
         [FieldOffset(4300)]
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 260)]
-        public String unknown27;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 260)]
+        public byte[] unknown27;
     }
 }

@@ -40,17 +40,18 @@ namespace MonsterCrusher
             var fileContent = string.Empty;
             var filePath = string.Empty;
 
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Monster Girl Club Bifrost Save Files (*.dat)|*.dat";
-            openFileDialog.FilterIndex = 2;
-            openFileDialog.RestoreDirectory = true;
+            OpenFileDialog dialog = new OpenFileDialog() {
+                Filter = "Monster Girl Club Bifrost Save Files (*.dat)|*.dat",
+                FilterIndex = 2,
+                RestoreDirectory = true
+            };
 
-            if (openFileDialog.ShowDialog() == true)
+            if (dialog.ShowDialog() == true)
             {
-                Properties.Settings.Default.GameDirectory = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
+                Properties.Settings.Default.GameDirectory = System.IO.Path.GetDirectoryName(dialog.FileName);
                 Properties.Settings.Default.Save();
 
-                Stream fileStream = openFileDialog.OpenFile();
+                Stream fileStream = dialog.OpenFile();
                 _saveLoaded = new Save();
                 _saveLoaded.Load(fileStream);
 
@@ -79,8 +80,16 @@ namespace MonsterCrusher
                 return;
             }
 
-            string path = System.IO.Path.Combine(Properties.Settings.Default.GameDirectory, "test.dat");
-            using (FileStream fs = new FileStream(path, FileMode.Create))
+            SaveFileDialog dialog = new SaveFileDialog() {
+                Filter = "Monster Girl Club Bifrost Save Files (*.dat)|*.dat",
+                InitialDirectory = Properties.Settings.Default.GameDirectory
+            };
+            if (dialog.ShowDialog() != true)
+            {
+                return;
+            }
+
+            using (FileStream fs = new FileStream(dialog.FileName, FileMode.Create))
             {
                 var bytes = GetBytes(selected.Save);
                 fs.Write(bytes, 0, bytes.Length);
