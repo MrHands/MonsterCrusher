@@ -12,7 +12,8 @@ namespace MonsterCrusher
     public class MainViewModel : INotifyPropertyChanged
     {
         private Save _save = null;
-        private string _monsterSelected = "";
+        private string _monsterSelectedName = "";
+        private MonsterViewModel _monsterSelected = null;
         private readonly CollectionView _monstersForSale = null;
         private readonly CollectionView _monstersOwned = null;
 
@@ -75,17 +76,24 @@ namespace MonsterCrusher
             }
         }
 
-        public string MonsterSelected
+        public string MonsterSelectedName
         {
-            get { return _monsterSelected; }
+            get { return _monsterSelectedName; }
             set
             {
-                if (_monsterSelected != value)
+                if (_monsterSelectedName != value)
                 {
-                    _monsterSelected = value;
+                    _monsterSelected = new MonsterViewModel(_save.monstersOwned.Find(monster => monster.name == value));
+
+                    _monsterSelectedName = value;
                     OnPropertyChanged("MonsterSelected");
                 }
             }
+        }
+
+        public MonsterViewModel MonsterSelected
+        {
+            get { return _monsterSelected; }
         }
 
         public CollectionView MonstersForSale

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MonsterCrusher"
+        xmlns:uc="clr-namespace:MonsterCrusher"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -14,12 +15,7 @@
         <Label x:Name="lblMoney" Content="Money" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Width="100"/>
         <TextBox x:Name="txtMoney" HorizontalAlignment="Left" Height="23" Margin="131,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" Text="{Binding Path=Money, Mode=OneWay}"/>
         <Label x:Name="lblDate" Content="{Binding Date}" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" Width="249"/>
-        <DataGrid x:Name="grdMonsterProps" HorizontalAlignment="Left" Height="303" Margin="278,75,0,0" VerticalAlignment="Top" Width="473">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Name" MinWidth="199"/>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Value" MinWidth="199"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <ComboBox x:Name="cmbMonster" HorizontalAlignment="Left" Margin="278,44,0,0" VerticalAlignment="Top" Width="473" ItemsSource="{Binding Path=MonstersOwned}" DisplayMemberPath="Name" SelectedValuePath="Name" SelectedValue="{Binding Path=MonsterSelected}"/>
+        <uc:MonsterView Margin="278,79,10.333,9.667" DataContext="{Binding Path=MonsterSelected}"></uc:MonsterView>
+        <ComboBox x:Name="cmbMonster" HorizontalAlignment="Left" Margin="278,44,0,0" VerticalAlignment="Top" Width="505" ItemsSource="{Binding Path=MonstersOwned}" DisplayMemberPath="Name" SelectedValuePath="Name" SelectedValue="{Binding Path=MonsterSelectedName}"/>
     </Grid>
 </Window>
