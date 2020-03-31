@@ -43,9 +43,10 @@ namespace MonsterCrusher
             properties.Add(new MonsterPropertyViewModel() { Name = "statAffection", Value = _save.statAffection.ToString() });
             properties.Add(new MonsterPropertyViewModel() { Name = "prostitution", Value = _save.prostitutionCount.ToString() });
             properties.Add(new MonsterPropertyViewModel() { Name = "squeezedDry", Value = _save.squeezedDry.ToString() });
-            // properties.Add(new MonsterPropertyViewModel() { Name = "analTraining", Value = _save.analTraining.ToString() });
+            properties.Add(new MonsterPropertyViewModel() { Name = "analTraining", Value = _save.analTraining.ToString() });
             properties.Add(new MonsterPropertyViewModel() { Name = "urineTraining", Value = _save.urineTraining.ToString() });
             properties.Add(new MonsterPropertyViewModel() { Name = "moneyEarned", Value = _save.moneyEarned.ToString() });
+            properties.Add(new MonsterPropertyViewModel() { Name = "exchangePoints", Value = _save.exchangePoints.ToString() });
             properties.Add(new MonsterPropertyViewModel() { Name = "pricePurchase", Value = _save.pricePurchase.ToString() });
             properties.Add(new MonsterPropertyViewModel() { Name = "priceSale", Value = _save.priceSale.ToString() });
             properties.Add(new MonsterPropertyViewModel() { Name = "imageFace", Value = _save.imageFace });

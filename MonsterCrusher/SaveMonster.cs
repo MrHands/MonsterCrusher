@@ -67,6 +67,9 @@ namespace MonsterCrusher
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
         public byte[] unknown7;
 
+        [FieldOffset(1454)]
+        public UInt32 exchangePoints;
+
         [FieldOffset(1476)]
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 1276)]
         public byte[] unknown8;
@@ -188,8 +191,11 @@ namespace MonsterCrusher
         public UInt32 unknown26;
 
         [FieldOffset(4300)]
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 118)]
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 116)]
         public byte[] unknown27;
+
+        [FieldOffset(4416)]
+        public UInt16 analTraining;
 
         [FieldOffset(4418)]
         public UInt16 urineTraining;
