@@ -6,10 +6,10 @@
              xmlns:local="clr-namespace:MonsterCrusher"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <DataGrid x:Name="grdMonsterProps" ItemsSource="{Binding Path=Properties}" AutoGenerateColumns="False" Margin="0">
+    <DataGrid x:Name="grdMonsterProps" ItemsSource="{Binding Path=Properties}" AutoGenerateColumns="False" Margin="0" CellEditEnding="GrdMonsterProps_CellEditEnding">
         <DataGrid.Columns>
             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Name" MinWidth="199"/>
-            <DataGridTextColumn Binding="{Binding Path=Value}" Header="Value" MinWidth="199"/>
+            <DataGridTextColumn Binding="{Binding Path=Value, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" Header="Value" MinWidth="199"/>
         </DataGrid.Columns>
     </DataGrid>
 </UserControl>

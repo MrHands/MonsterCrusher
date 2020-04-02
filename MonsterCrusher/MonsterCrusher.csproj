@@ -56,6 +56,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BaseObservableObject.cs" />
     <Compile Include="MonsterView.xaml.cs">
       <DependentUpon>MonsterView.xaml</DependentUpon>
     </Compile>
