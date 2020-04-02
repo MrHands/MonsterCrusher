@@ -31,7 +31,7 @@ namespace MonsterCrusher
                 var cellVM = e.Row.Item as MonsterPropertyViewModel;
 
                 var dataVM = DataContext as MonsterViewModel;
-                var save = dataVM.Save;
+                var save = dataVM.Save.Value;
 
                 var newValue = (e.EditingElement as TextBox).Text;
 
@@ -48,6 +48,8 @@ namespace MonsterCrusher
                 {
                     Console.WriteLine("Unsupported type \"{0}\"", field.FieldType.ToString());
                 }
+
+                dataVM.Save.Value = save;
             }
         }
     }

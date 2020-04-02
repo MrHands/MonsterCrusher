@@ -20,12 +20,12 @@ namespace MonsterCrusher
         public MainViewModel()
         {
         }
-        public MainViewModel(Save save)
+        public MainViewModel(ref Save save)
         {
             _save = save;
 
             List<MonsterViewModel> forSaleVMs = new List<MonsterViewModel>();
-            foreach (SaveMonster m in _save.monstersSale)
+            foreach (var m in _save.monstersSale)
             {
                 MonsterViewModel vm = new MonsterViewModel(m);
                 forSaleVMs.Add(vm);
@@ -33,11 +33,13 @@ namespace MonsterCrusher
             _monstersForSale = new CollectionView(forSaleVMs);
 
             List<MonsterViewModel> ownedVMs = new List<MonsterViewModel>();
-            foreach (SaveMonster m in _save.monstersOwned)
+
+            foreach (var m in _save.monstersOwned)
             {
                 MonsterViewModel vm = new MonsterViewModel(m) { IsUnused = ownedVMs.Count >= _save.header.monsterCount };
                 ownedVMs.Add(vm);
             }
+
             _monstersOwned = new CollectionView(ownedVMs);
         }
 
@@ -83,7 +85,7 @@ namespace MonsterCrusher
             {
                 if (_monsterSelectedName != value)
                 {
-                    _monsterSelected = new MonsterViewModel(_save.monstersOwned.Find(monster => monster.name == value));
+                    _monsterSelected = new MonsterViewModel(_save.monstersOwned.Find(monster => monster.Value.name == value));
 
                     _monsterSelectedName = value;
                     OnPropertyChanged("MonsterSelected");

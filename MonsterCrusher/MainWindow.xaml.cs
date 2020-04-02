@@ -55,7 +55,7 @@ namespace MonsterCrusher
                 _saveLoaded = new Save();
                 _saveLoaded.LoadFromStream(fileStream);
 
-                DataContext = new MainViewModel(_saveLoaded);
+                DataContext = new MainViewModel(ref _saveLoaded);
             }
         }
 
@@ -91,7 +91,7 @@ namespace MonsterCrusher
 
             using (FileStream fs = new FileStream(dialog.FileName, FileMode.Create))
             {
-                var bytes = GetBytes(selected.Save);
+                var bytes = GetBytes(selected.Save.Value);
                 fs.Write(bytes, 0, bytes.Length);
             }
         }

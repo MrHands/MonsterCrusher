@@ -8,12 +8,17 @@ using System.Threading.Tasks;
 
 namespace MonsterCrusher
 {
+    public class Ref<T> where T : struct
+    {
+        public T Value { get; set; }
+    }
+
     public class Save
     {
         public SaveHeader header;
-        public List<SaveClient> clients = new List<SaveClient>();
-        public List<SaveMonster> monstersSale = new List<SaveMonster>();
-        public List<SaveMonster> monstersOwned = new List<SaveMonster>();
+        public List<Ref<SaveClient>> clients = new List<Ref<SaveClient>>();
+        public List<Ref<SaveMonster>> monstersSale = new List<Ref<SaveMonster>>();
+        public List<Ref<SaveMonster>> monstersOwned = new List<Ref<SaveMonster>>();
         public SaveInventory inventory = new SaveInventory();
         public byte[] padding1;
         public byte[] padding2;
@@ -30,8 +35,8 @@ namespace MonsterCrusher
 
             for (int i = 0; i < 6; ++i)
             {
-                SaveMonster offer = new SaveMonster();
-                ReadStruct<SaveMonster>(reader, ref offer);
+                var offer = new Ref<SaveMonster>() { Value = new SaveMonster() };
+                ReadStruct<SaveMonster>(reader, offer);
                 monstersSale.Add(offer);
             }
 
@@ -44,11 +49,11 @@ namespace MonsterCrusher
 
             // clients
 
-            for (;;)
+            for (; ; )
             {
-                SaveClient client = new SaveClient();
-                ReadStruct<SaveClient>(reader, ref client);
-                if (!client.imageCustomer.EndsWith(".tga"))
+                var client = new Ref<SaveClient>() { Value = new SaveClient() };
+                ReadStruct<SaveClient>(reader, client);
+                if (!client.Value.imageCustomer.EndsWith(".tga"))
                 {
                     reader.BaseStream.Seek(Marshal.SizeOf(typeof(SaveClient)) * -1, SeekOrigin.Current);
 
@@ -62,11 +67,11 @@ namespace MonsterCrusher
 
             // monsters owned
 
-            for (;;)
+            for (; ; )
             {
-                SaveMonster unused = new SaveMonster();
-                ReadStruct<SaveMonster>(reader, ref unused);
-                if (!unused.imageIcon.EndsWith(".tga"))
+                var unused = new Ref<SaveMonster>() { Value = new SaveMonster() };
+                ReadStruct<SaveMonster>(reader, unused);
+                if (!unused.Value.imageIcon.EndsWith(".tga"))
                 {
                     reader.BaseStream.Seek(Marshal.SizeOf(typeof(SaveMonster)) * -1, SeekOrigin.Current);
 
@@ -87,9 +92,9 @@ namespace MonsterCrusher
 
             writer.Write(GetBytes(header));
 
-            foreach (SaveMonster m in monstersSale)
+            foreach (var m in monstersSale)
             {
-                writer.Write(GetBytes(m));
+                writer.Write(GetBytes(m.Value));
             }
 
             writer.Write(padding1);
@@ -98,16 +103,16 @@ namespace MonsterCrusher
 
             writer.Write(padding2);
 
-            foreach (SaveClient c in clients)
+            foreach (var c in clients)
             {
-                writer.Write(GetBytes(c));
+                writer.Write(GetBytes(c.Value));
             }
 
             writer.Write(padding3);
 
-            foreach (SaveMonster m in monstersOwned)
+            foreach (var m in monstersOwned)
             {
-                writer.Write(GetBytes(m));
+                writer.Write(GetBytes(m.Value));
             }
 
             writer.Write(padding4);
@@ -132,6 +137,19 @@ namespace MonsterCrusher
             readBuffer = reader.ReadBytes((int)count);
 
             return readBuffer;
+        }
+
+        private bool ReadStruct<Type>(BinaryReader reader, Ref<Type> target) where Type : struct
+        {
+            int count = Marshal.SizeOf(typeof(Type));
+            byte[] readBuffer = new byte[count];
+            readBuffer = reader.ReadBytes(count);
+
+            GCHandle handle = GCHandle.Alloc(readBuffer, GCHandleType.Pinned);
+            target.Value = (Type)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(Type));
+            handle.Free();
+
+            return true;
         }
 
         private bool ReadStruct<Type>(BinaryReader reader, ref Type target)
