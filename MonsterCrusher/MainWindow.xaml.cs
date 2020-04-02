@@ -113,5 +113,19 @@ namespace MonsterCrusher
                 _saveLoaded.SaveToStream(fs);
             }
         }
+
+        private void BtnNewDay_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var m in _saveLoaded.monstersOwned)
+            {
+                var copy = m.Value;
+                copy.inHeat = 2;
+                copy.staminaCurrent = copy.staminaMaximum;
+                copy.mentalCurrent = copy.mentalMaximum;
+                m.Value = copy;
+            }
+
+            DataContext = new MainViewModel(ref _saveLoaded);
+        }
     }
 }
