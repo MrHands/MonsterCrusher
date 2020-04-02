@@ -30,6 +30,7 @@ namespace MonsterCrusher
             _properties.Add(new MonsterPropertyViewModel() { Name = "name", Value = monster.name });
             _properties.Add(new MonsterPropertyViewModel() { Name = "race1", Value = monster.race1 });
             _properties.Add(new MonsterPropertyViewModel() { Name = "race2", Value = monster.race2 });
+            _properties.Add(new MonsterPropertyViewModel() { Name = "inHeat", Value = monster.inHeat.ToString() });
             _properties.Add(new MonsterPropertyViewModel() { Name = "firstTime", Value = monster.firstTime });
             _properties.Add(new MonsterPropertyViewModel() { Name = "staminaCurrent", Value = monster.staminaCurrent.ToString() });
             _properties.Add(new MonsterPropertyViewModel() { Name = "staminaMaximum", Value = monster.staminaMaximum.ToString() });
@@ -40,10 +41,13 @@ namespace MonsterCrusher
             _properties.Add(new MonsterPropertyViewModel() { Name = "shameMaximum", Value = monster.shameMaximum.ToString() });
             _properties.Add(new MonsterPropertyViewModel() { Name = "prideCurrent", Value = monster.prideCurrent.ToString() });
             _properties.Add(new MonsterPropertyViewModel() { Name = "prideMaximum", Value = monster.prideMaximum.ToString() });
-            _properties.Add(new MonsterPropertyViewModel() { Name = "prideMaximum", Value = monster.prideMaximum.ToString() });
+            _properties.Add(new MonsterPropertyViewModel() { Name = "levelObedience", Value = monster.levelObedience.ToString() });
             _properties.Add(new MonsterPropertyViewModel() { Name = "statObedience", Value = monster.statObedience.ToString() });
+            _properties.Add(new MonsterPropertyViewModel() { Name = "levelLewdness", Value = monster.levelLewdness.ToString() });
             _properties.Add(new MonsterPropertyViewModel() { Name = "statLewdness", Value = monster.statLewdness.ToString() });
+            _properties.Add(new MonsterPropertyViewModel() { Name = "levelTechnique", Value = monster.levelTechnique.ToString() });
             _properties.Add(new MonsterPropertyViewModel() { Name = "statTechnique", Value = monster.statTechnique.ToString() });
+            _properties.Add(new MonsterPropertyViewModel() { Name = "levelAffection", Value = monster.levelAffection.ToString() });
             _properties.Add(new MonsterPropertyViewModel() { Name = "statAffection", Value = monster.statAffection.ToString() });
             _properties.Add(new MonsterPropertyViewModel() { Name = "prostitution", Value = monster.prostitutionCount.ToString() });
             _properties.Add(new MonsterPropertyViewModel() { Name = "squeezedDry", Value = monster.squeezedDry.ToString() });
@@ -65,7 +69,6 @@ namespace MonsterCrusher
             _properties.Add(new MonsterPropertyViewModel() { Name = "unknown6", Value = monster.unknown6.ToString() });
             _properties.Add(new MonsterPropertyViewModel() { Name = "unknown7", Value = monster.unknown7.ToString() });
             _properties.Add(new MonsterPropertyViewModel() { Name = "unknown8", Value = monster.unknown8.ToString() });
-            _properties.Add(new MonsterPropertyViewModel() { Name = "unknown9", Value = monster.unknown9.ToString() });
             _properties.Add(new MonsterPropertyViewModel() { Name = "unknown12", Value = monster.unknown12.ToString() });
             _properties.Add(new MonsterPropertyViewModel() { Name = "unknown13", Value = monster.unknown13.ToString() });
             _properties.Add(new MonsterPropertyViewModel() { Name = "unknown14", Value = monster.unknown14.ToString() });

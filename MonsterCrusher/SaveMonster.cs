@@ -75,7 +75,7 @@ namespace MonsterCrusher
         public byte[] unknown8;
 
         [FieldOffset(2752)]
-        public UInt32 unknown9;
+        public UInt32 inHeat;
 
         [FieldOffset(2756)]
         public UInt32 staminaCurrent;
@@ -156,8 +156,24 @@ namespace MonsterCrusher
         public byte[] unknown21;
 
         [FieldOffset(3000)]
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 1236)]
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 1156)]
         public byte[] unknown22;
+
+        [FieldOffset(4156)]
+        public UInt32 levelObedience;
+
+        [FieldOffset(4160)]
+        public UInt32 levelLewdness;
+
+        [FieldOffset(4164)]
+        public UInt32 levelTechnique;
+
+        [FieldOffset(4168)]
+        public UInt32 levelAffection;
+
+        [FieldOffset(4172)]
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
+        public byte[] unknown31;
 
         [FieldOffset(4236)]
         public UInt32 statObedience;
