@@ -119,7 +119,7 @@ namespace MonsterCrusher
             foreach (var m in _saveLoaded.monstersOwned)
             {
                 var copy = m.Value;
-                copy.inHeat = 2;
+                copy.inHeat = 1;
                 copy.staminaCurrent = copy.staminaMaximum;
                 copy.mentalCurrent = copy.mentalMaximum;
                 m.Value = copy;

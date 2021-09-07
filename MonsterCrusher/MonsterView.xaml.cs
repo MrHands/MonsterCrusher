@@ -44,6 +44,10 @@ namespace MonsterCrusher
                 {
                     field.SetValueDirect(__makeref(save), UInt32.Parse(newValue));
                 }
+                else if (field.FieldType == typeof(UInt16))
+                {
+                    field.SetValueDirect(__makeref(save), UInt16.Parse(newValue));
+                }
                 else
                 {
                     Console.WriteLine("Unsupported type \"{0}\"", field.FieldType.ToString());
